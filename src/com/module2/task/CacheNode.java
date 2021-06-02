@@ -3,13 +3,14 @@ package com.module2.task;
 
 
 public class CacheNode {
-    public int getKey() {
-        return key;
-    }
 
     private final int key;
     private StringWrapper value;
     private int frequency;
+
+    public int getKey() {
+        return key;
+    }
 
     public CacheNode(int key, StringWrapper value, int frequency) {
         this.key = key;

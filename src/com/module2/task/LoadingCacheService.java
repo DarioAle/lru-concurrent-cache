@@ -2,13 +2,15 @@ package com.module2.task;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.io.Closeable;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class LoadingCacheService {
+
     private final int MAX_CAPACITY;
-    private LinkedList<FrequencyList> frequencies = new LinkedList<>();
-    private Map<Integer, CacheNode> cache = new HashMap<>();
+    private final LinkedList<FrequencyList> frequencies = new LinkedList<>();
+    private final Map<Integer, CacheNode> cache = new ConcurrentHashMap<>();
 
     public LoadingCacheService(int capacity) {
         this.MAX_CAPACITY = capacity;
@@ -17,7 +19,6 @@ public class LoadingCacheService {
     public StringWrapper get(int key) {
         if(cache.containsKey(key)) {
             CacheNode cn = cache.get(key);
-
 
             updateFrequency(cn);
 
@@ -43,7 +44,7 @@ public class LoadingCacheService {
         }
     }
 
-    private void addEntry(@NotNull CacheNode cn) {
+    private synchronized void addEntry(@NotNull CacheNode cn) {
         // update frequency of this cache node
         cn.setFrequency(cn.getFrequency() + 1);
 
@@ -68,12 +69,12 @@ public class LoadingCacheService {
         // get list on index i if frequency was equal
         if(isEqual) {
             // append to the end of the first frequency list
-            this.frequencies.get(i).getFreqList().addLast(cn);
+            this.frequencies.get(i).getFreqList().add(cn);
         } else {
             // else create the new list and put it in the correct frequency list.
 
             // in case i is bigger than the size make the adjustment
-            LinkedList<CacheNode> ll = new LinkedList<>();
+            ConcurrentLinkedQueue<CacheNode> ll = new ConcurrentLinkedQueue<>();
             ll.add(cn);
             FrequencyList newFrList = new FrequencyList(cn.getFrequency(), ll);
             if(i >= this.frequencies.size())
@@ -84,11 +85,12 @@ public class LoadingCacheService {
 
     }
 
-    private void evict() {
+    private synchronized void evict() {
         // Retrieved lest frequently used elements at the beginning
         FrequencyList lowestFrequencyList = this.frequencies.getFirst();
 
-        CacheNode cn = lowestFrequencyList.getFreqList().removeFirst();
+        // the first frequency list will always have a value, otherwise it wouldn't be there.
+        CacheNode cn = lowestFrequencyList.getFreqList().poll();
 
         if(lowestFrequencyList.getFreqList().size() == 0) {
             this.frequencies.remove(lowestFrequencyList);
@@ -97,7 +99,7 @@ public class LoadingCacheService {
         this.cache.remove(cn.getKey());
     }
 
-    private void updateFrequency(CacheNode cn) {
+    private synchronized void updateFrequency(CacheNode cn) {
         // remove from current position
         int f = cn.getFrequency();
 
@@ -117,7 +119,7 @@ public class LoadingCacheService {
         addEntry(cn);
     }
 
-    public int size() {
+    public synchronized int size() {
         return this.cache.size();
     }
 }

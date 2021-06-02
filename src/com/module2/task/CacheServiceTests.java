@@ -1,8 +1,5 @@
 package com.module2.task;
 
-import com.google.common.cache.CacheBuilder;
-import com.google.common.cache.CacheLoader;
-import com.google.common.cache.LoadingCache;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

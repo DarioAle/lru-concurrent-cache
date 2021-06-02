@@ -1,13 +1,14 @@
 package com.module2.task;
 
-import java.util.LinkedList;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 
 public class FrequencyList {
-    private int frequency;
-    private LinkedList<CacheNode> freqList;
 
-    public FrequencyList(int frequency, LinkedList<CacheNode> freqList) {
+    private final int frequency;
+    private final ConcurrentLinkedQueue<CacheNode> freqList;
+
+    public FrequencyList(int frequency, ConcurrentLinkedQueue<CacheNode> freqList) {
         this.frequency = frequency;
         this.freqList = freqList;
     }
@@ -16,15 +17,8 @@ public class FrequencyList {
         return frequency;
     }
 
-    public void setFrequency(int frequency) {
-        this.frequency = frequency;
-    }
-
-    public LinkedList<CacheNode> getFreqList() {
+    public ConcurrentLinkedQueue<CacheNode> getFreqList() {
         return freqList;
     }
 
-    public void setFreqList(LinkedList<CacheNode> freqList) {
-        this.freqList = freqList;
-    }
 }

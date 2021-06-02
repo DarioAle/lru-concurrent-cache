@@ -11,12 +11,12 @@ public class StringWrapper {
         return val;
     }
 
+    public void setVal(String val) {
+        this.val = val;
+    }
+
     @Override
     public String toString() {
         return val;
-    }
-
-    public void setVal(String val) {
-        this.val = val;
     }
 }
