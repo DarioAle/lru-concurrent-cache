@@ -14,7 +14,7 @@ public class CacheServiceTests {
         cache = new LoadingCacheService(10, new SubCacheLoader() {
             @Override
             public StringWrapper load(String key) {
-                return super.load(key.toUpperCase());
+                return new StringWrapper(key.toUpperCase());
             }
         });
         StringWrapper sw = new StringWrapper("HELLO");

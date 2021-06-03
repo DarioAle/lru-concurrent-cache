@@ -167,7 +167,7 @@ public class LoadingCacheService {
 
         sb.append("Total number of evictions: ");
         sb.append(this.numberOfCacheEvictions.get());
-        sb.append("\n");
+        sb.append("ms. \n");
 
         System.out.println(sb);
     }

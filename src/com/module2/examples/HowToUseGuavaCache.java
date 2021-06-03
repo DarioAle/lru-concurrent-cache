@@ -47,9 +47,10 @@ public class HowToUseGuavaCache {
         cache.getUnchecked("first");
         cache.getUnchecked("second");
         cache.getUnchecked("third");
+        cache.getUnchecked("first");
         cache.getUnchecked("forth");
         assertEquals(3, cache.size());
-        assertNull(cache.getIfPresent("first"));
+        assertNull(cache.getIfPresent("second"));
         assertEquals("FORTH", cache.getIfPresent("forth"));
     }
 
