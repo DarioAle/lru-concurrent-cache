@@ -4,15 +4,15 @@ package com.module2.task;
 
 public class CacheNode {
 
-    private final int key;
+    private final String key;
     private StringWrapper value;
     private int frequency;
 
-    public int getKey() {
+    public String getKey() {
         return key;
     }
 
-    public CacheNode(int key, StringWrapper value, int frequency) {
+    public CacheNode(String key, StringWrapper value, int frequency) {
         this.key = key;
         this.value = value;
         this.frequency = frequency;

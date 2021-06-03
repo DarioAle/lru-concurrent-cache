@@ -1,8 +1,10 @@
 package com.module2.task;
 
-public abstract class SubCacheLoader {
+public class SubCacheLoader {
 
     protected SubCacheLoader() { }
 
-    public abstract String load(String key) throws Exception;
+    public  StringWrapper load(String key) {
+        return new StringWrapper(key);
+    }
 }
