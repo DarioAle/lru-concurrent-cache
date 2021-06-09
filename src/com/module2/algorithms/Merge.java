@@ -1,14 +1,15 @@
 package com.module2.algorithms;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Merge {
-    public static void merge(
-            int[] a, int[] l, int[] r, int left, int right) {
+    public static <T extends Comparable<T>> void merge(
+            T[] a, T[] l, T[] r, int left, int right) {
 
         int i = 0, j = 0, k = 0;
         while (i < left && j < right) {
-            if (l[i] <= r[j]) {
+            if (l[i].compareTo(r[j]) <= 0) {
                 a[k++] = l[i++];
             }
             else {
@@ -25,13 +26,13 @@ public class Merge {
 
     // Main function that sorts arr[l..r] using
     // merge()
-    public static void mergeSort(int[] a, int n) {
+    public static  <T extends Comparable<T>> void mergeSort(T[] a, int n) {
         if (n < 2) {
             return;
         }
         int mid = n / 2;
-        int[] l = new int[mid];
-        int[] r = new int[n - mid];
+        T[] l = (T[]) new ArrayList<T>(mid).toArray();
+        T[] r = (T[]) new ArrayList<T>(n - mid).toArray();
 
         for (int i = 0; i < mid; i++) {
             l[i] = a[i];
@@ -47,7 +48,7 @@ public class Merge {
 
 
     public static void main(String ... a) {
-        int[] arr = { 5, 1, 6, 2, 3, 4 };
+        Integer[] arr = { 5, 1, 6, 2, 3, 4 };
         Merge.mergeSort(arr, arr.length);
         System.out.println(Arrays.toString(arr));
     }
