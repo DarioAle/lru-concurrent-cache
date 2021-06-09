@@ -20,6 +20,7 @@ public class BinarySearch {
                 return mid;
             }
         }
+        System.out.println("Element not found");
         return -1;
     }
 

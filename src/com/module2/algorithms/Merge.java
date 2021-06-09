@@ -7,6 +7,7 @@ public class Merge {
     public static <T extends Comparable<T>> void merge(
             T[] a, T[] l, T[] r, int left, int right) {
 
+        System.out.println("Merging from " + left + " to " + right );
         int i = 0, j = 0, k = 0;
         while (i < left && j < right) {
             if (l[i].compareTo(r[j]) <= 0) {
