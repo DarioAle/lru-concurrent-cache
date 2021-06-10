@@ -6,11 +6,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'echo "The build will be performed using ${params.buildType}"'
-                sh '''
-                    echo "Multiline shell steps works too"
-                    ls -lah
-                '''
+                echo "The build will be performed using ${params.buildType}"
             }
         }
     }
