@@ -7,7 +7,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "The build will be performed using ${params.buildType}"
-                java -version
+                sh 'java -version'
                 echo "Compilation successfull"
             }
         }
