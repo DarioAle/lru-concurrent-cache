@@ -7,7 +7,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "The build will be performed using ${params.buildType}"
-                java ../src/com/module2/task/CacheNode.java
+                java --version
                 echo "Compilation successfull"
             }
         }
