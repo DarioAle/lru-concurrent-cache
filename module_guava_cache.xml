@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_guava_cache" default="compile.module.guava_cache">
+  <dirname property="module.guava_cache.basedir" file="${ant.file.module_guava_cache}"/>
+  
+  <property name="module.jdk.home.guava_cache" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.guava_cache" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.guava_cache" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.guava_cache" value="-encoding UTF-8 -source 11 -target 11 ${compiler.args}"/>
+  
+  <property name="guava_cache.output.dir" value="${module.guava_cache.basedir}/out/production/Guava_Cache"/>
+  <property name="guava_cache.testoutput.dir" value="${module.guava_cache.basedir}/out/test/Guava_Cache"/>
+  
+  <path id="guava_cache.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="guava_cache.module.production.classpath">
+    <path refid="${module.jdk.classpath.guava_cache}"/>
+    <pathelement location="${basedir}/../../Downloads/guava_jar/error_prone_annotations-2.5.1.jar"/>
+    <pathelement location="${basedir}/../../Downloads/guava_jar/checker-qual-3.8.0.jar"/>
+    <pathelement location="${basedir}/../../Downloads/guava_jar/failureaccess-1.0.1.jar"/>
+    <pathelement location="${basedir}/../../Downloads/guava_jar/guava-30.1.1-jre.jar"/>
+    <pathelement location="${basedir}/../../Downloads/guava_jar/j2objc-annotations-1.3.jar"/>
+    <pathelement location="${basedir}/../../Downloads/guava_jar/jsr305-3.0.2.jar"/>
+    <pathelement location="${basedir}/lib/hamcrest-core-1.3.jar"/>
+    <pathelement location="${basedir}/lib/junit-4.13.1.jar"/>
+    <pathelement location="${basedir}/lib/annotations-20.1.0.jar"/>
+  </path>
+  
+  <path id="guava_cache.runtime.production.module.classpath">
+    <pathelement location="${guava_cache.output.dir}"/>
+    <pathelement location="${basedir}/../../Downloads/guava_jar/error_prone_annotations-2.5.1.jar"/>
+    <pathelement location="${basedir}/../../Downloads/guava_jar/checker-qual-3.8.0.jar"/>
+    <pathelement location="${basedir}/../../Downloads/guava_jar/failureaccess-1.0.1.jar"/>
+    <pathelement location="${basedir}/../../Downloads/guava_jar/guava-30.1.1-jre.jar"/>
+    <pathelement location="${basedir}/../../Downloads/guava_jar/j2objc-annotations-1.3.jar"/>
+    <pathelement location="${basedir}/../../Downloads/guava_jar/jsr305-3.0.2.jar"/>
+    <pathelement location="${basedir}/lib/hamcrest-core-1.3.jar"/>
+    <pathelement location="${basedir}/lib/junit-4.13.1.jar"/>
+    <pathelement location="${basedir}/lib/annotations-20.1.0.jar"/>
+  </path>
+  
+  <path id="guava_cache.module.classpath">
+    <path refid="${module.jdk.classpath.guava_cache}"/>
+    <pathelement location="${guava_cache.output.dir}"/>
+    <pathelement location="${basedir}/../../Downloads/guava_jar/error_prone_annotations-2.5.1.jar"/>
+    <pathelement location="${basedir}/../../Downloads/guava_jar/checker-qual-3.8.0.jar"/>
+    <pathelement location="${basedir}/../../Downloads/guava_jar/failureaccess-1.0.1.jar"/>
+    <pathelement location="${basedir}/../../Downloads/guava_jar/guava-30.1.1-jre.jar"/>
+    <pathelement location="${basedir}/../../Downloads/guava_jar/j2objc-annotations-1.3.jar"/>
+    <pathelement location="${basedir}/../../Downloads/guava_jar/jsr305-3.0.2.jar"/>
+    <pathelement location="${basedir}/lib/hamcrest-core-1.3.jar"/>
+    <pathelement location="${basedir}/lib/junit-4.13.1.jar"/>
+    <pathelement location="${basedir}/lib/annotations-20.1.0.jar"/>
+  </path>
+  
+  <path id="guava_cache.runtime.module.classpath">
+    <pathelement location="${guava_cache.testoutput.dir}"/>
+    <pathelement location="${guava_cache.output.dir}"/>
+    <pathelement location="${basedir}/../../Downloads/guava_jar/error_prone_annotations-2.5.1.jar"/>
+    <pathelement location="${basedir}/../../Downloads/guava_jar/checker-qual-3.8.0.jar"/>
+    <pathelement location="${basedir}/../../Downloads/guava_jar/failureaccess-1.0.1.jar"/>
+    <pathelement location="${basedir}/../../Downloads/guava_jar/guava-30.1.1-jre.jar"/>
+    <pathelement location="${basedir}/../../Downloads/guava_jar/j2objc-annotations-1.3.jar"/>
+    <pathelement location="${basedir}/../../Downloads/guava_jar/jsr305-3.0.2.jar"/>
+    <pathelement location="${basedir}/lib/hamcrest-core-1.3.jar"/>
+    <pathelement location="${basedir}/lib/junit-4.13.1.jar"/>
+    <pathelement location="${basedir}/lib/annotations-20.1.0.jar"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.guava_cache">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.guava_cache">
+    <patternset refid="excluded.from.module.guava_cache"/>
+  </patternset>
+  
+  <path id="guava_cache.module.sourcepath">
+    <dirset dir="${module.guava_cache.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.guava_cache" depends="compile.module.guava_cache.production,compile.module.guava_cache.tests" description="Compile module Guava_Cache"/>
+  
+  <target name="compile.module.guava_cache.production" depends="register.custom.compilers" description="Compile module Guava_Cache; production classes">
+    <mkdir dir="${guava_cache.output.dir}"/>
+    <javac2 destdir="${guava_cache.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.guava_cache}/javac">
+      <compilerarg line="${compiler.args.guava_cache}"/>
+      <bootclasspath refid="guava_cache.module.bootclasspath"/>
+      <classpath refid="guava_cache.module.production.classpath"/>
+      <src refid="guava_cache.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.guava_cache"/>
+    </javac2>
+    
+    <copy todir="${guava_cache.output.dir}">
+      <fileset dir="${module.guava_cache.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.guava_cache.tests" depends="register.custom.compilers,compile.module.guava_cache.production" description="compile module Guava_Cache; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.guava_cache" description="cleanup module">
+    <delete dir="${guava_cache.output.dir}"/>
+    <delete dir="${guava_cache.testoutput.dir}"/>
+  </target>
+</project>
