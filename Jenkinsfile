@@ -9,7 +9,7 @@ pipeline {
                 echo "The build will be performed using ${params.buildType}"
                 sh 'ant -version'
                 sh 'ant -v compile'
-                echo "Compilation successfull"
+                echo "Compilation successful"
             }
         }
     }
