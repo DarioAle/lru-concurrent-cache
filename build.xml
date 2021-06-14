@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="module_guava_cache" default="compile.module.guava_cache">
-  <dirname property="module.guava_cache.basedir" file="${ant.file.module_guava_cache}"/>
+  <dirname property="module.guava_cache.basedir" file="/build.xml"/>
   
   <property name="module.jdk.home.guava_cache" value="${project.jdk.home}"/>
   <property name="module.jdk.bin.guava_cache" value="${project.jdk.bin}"/>

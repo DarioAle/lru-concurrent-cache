@@ -158,7 +158,7 @@
   
   <!-- Modules -->
   
-  <import file="${basedir}/module_guava_cache.xml"/>
+  <import file="/build.xml"/>
   
   <target name="init" description="Build initialization">
     <!-- Perform any build initialization in this target -->
