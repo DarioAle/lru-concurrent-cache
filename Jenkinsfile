@@ -7,8 +7,9 @@ pipeline {
         stage('Build') {
             steps {
                 echo "The build will be performed using ${params.buildType}"
-                sh 'javac src/*.java'
-
+                sh 'ant -version'
+                sh 'ant compile'
+                echo "Compilation successfull"
             }
         }
     }
