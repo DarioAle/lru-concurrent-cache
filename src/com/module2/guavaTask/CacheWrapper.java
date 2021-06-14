@@ -60,4 +60,8 @@ public class CacheWrapper {
         System.out.println(sb);
     }
 
+    public long size() {
+        return this.cache.size();
+    }
+
 }
