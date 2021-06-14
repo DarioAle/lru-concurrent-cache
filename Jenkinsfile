@@ -8,6 +8,7 @@ pipeline {
             steps {
                 echo "The build will be performed using ${params.buildType}"
                 sh 'ant -version'
+                sh 'ant compile'
                 echo "Compilation successfull"
             }
         }
