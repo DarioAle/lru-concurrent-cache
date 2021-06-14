@@ -7,7 +7,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "The build will be performed using ${params.buildType}"
-                sh 'ant -version'
+                sh 'mvn --version'
                 echo "Compilation successfull"
             }
         }
