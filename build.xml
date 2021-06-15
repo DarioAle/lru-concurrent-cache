@@ -1,6 +1,6 @@
 <project name="LFU Cache" basedir="." default="main">
 
-    <property name="src.dir"     value="src"/>
+    <property name="src.dir"     value="src/com/module2"/>
 
     <property name="build.dir"   value="build"/>
     <property name="classes.dir" value="${build.dir}/classes"/>
