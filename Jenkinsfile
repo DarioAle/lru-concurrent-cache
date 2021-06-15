@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'ant junit'
+                sh 'ant -v junit'
             }
         }
     }
