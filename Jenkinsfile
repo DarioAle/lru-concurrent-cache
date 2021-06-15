@@ -12,5 +12,10 @@ pipeline {
                 echo "Compilation successful"
             }
         }
+        stage('Test') {
+            steps {
+                sh 'ant junit'
+            }
+        }
     }
 }
