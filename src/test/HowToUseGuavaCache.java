@@ -1,4 +1,4 @@
-package com.module2.examples;
+package test;
 
 import com.google.common.base.Optional;
 import com.google.common.cache.CacheBuilder;

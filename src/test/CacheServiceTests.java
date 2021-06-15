@@ -1,5 +1,8 @@
-package com.module2.task;
+package test;
 
+import com.module2.task.LoadingCacheService;
+import com.module2.task.StringWrapper;
+import com.module2.task.SubCacheLoader;
 import org.junit.Test;
 
 import java.util.concurrent.*;

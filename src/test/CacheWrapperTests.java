@@ -1,5 +1,6 @@
-package com.module2.guavaTask;
+package test;
 
+import com.module2.guavaTask.CacheWrapper;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
