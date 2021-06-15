@@ -15,6 +15,7 @@
         <fileset dir="${lib.dir}" includes="**/*.jar"/>
     </path>
     
+    <path id="application" location="${jar.dir}/${ant.project.name}.jar"/>
 
     <target name="clean">
         <delete dir="${build.dir}"/>
