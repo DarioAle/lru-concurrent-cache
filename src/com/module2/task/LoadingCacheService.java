@@ -2,7 +2,6 @@ package com.module2.task;
 
 
 import com.google.common.util.concurrent.AtomicDouble;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 import java.util.concurrent.*;
@@ -96,7 +95,7 @@ public class LoadingCacheService {
         fl.getFreqList().remove(cn);
     }
 
-    private synchronized void addEntry(@NotNull CacheNode cn) {
+    private synchronized void addEntry(CacheNode cn) {
         // update frequency of this cache node
         cn.setFrequency(cn.getFrequency() + 1);
 
