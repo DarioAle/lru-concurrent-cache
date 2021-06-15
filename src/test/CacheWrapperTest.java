@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class CacheWrapperTests {
+public class CacheWrapperTest {
     @Test
     public void whenCacheMiss_thenValueIsComputed() {
         CacheWrapper cache = new CacheWrapper();

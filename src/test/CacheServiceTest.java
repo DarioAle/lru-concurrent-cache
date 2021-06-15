@@ -9,7 +9,7 @@ import java.util.concurrent.*;
 
 import static org.junit.Assert.assertEquals;
 
-public class CacheServiceTests {
+public class CacheServiceTest {
     @Test
     public void loading_when_is_not_present() throws Exception{
 

@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.*;
 
-public class HowToUseGuavaCache {
+public class HowToUseGuavaCacheTest {
     @Test
     public void whenCacheMiss_thenValueIsComputed() {
         CacheLoader<String, String> loader;
