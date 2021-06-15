@@ -1,14 +1,10 @@
 <project name="LFU Cache" basedir="." default="main">
 
     <property name="src.dir"     value="src/com/module2"/>
-
     <property name="build.dir"   value="build"/>
-    <property name="classes.dir" value="${build.dir}/classes"/>
+    <property name="classes.dir" value="${build.dir}/classe s"/>
     <property name="jar.dir"     value="${build.dir}/jar"/>
-
     <property name="main-class"  value="com.module2.algorithms.BinarySearch"/>
-    
-    
     <property name="lib.dir"     value="lib"/>
 
     <path id="classpath">
@@ -37,6 +33,19 @@
 
     <target name="run" depends="jar">
         <java jar="${jar.dir}/${ant.project.name}.jar" fork="true"/>
+    </target>
+    
+    <target name="junit" depends="jar">
+        <junit printsummary="yes">
+            <classpath>
+                <path refid="classpath"/>
+                <path refid="application"/>
+            </classpath>
+
+            <batchtest fork="yes">
+                <fileset dir="${src.dir}" includes="**/*Test.java"/>
+            </batchtest>
+        </junit>
     </target>
 
     <target name="clean-build" depends="clean,jar"/>
