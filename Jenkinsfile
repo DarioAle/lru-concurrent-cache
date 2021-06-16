@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    properties{
+    options{
         promotions {
             promotion {
                 name('Development')
