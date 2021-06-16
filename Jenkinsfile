@@ -1,22 +1,8 @@
 pipeline {
     agent any
-    options{
-        promotions {
-            promotion {
-                name('Development')
-                conditions {
-                    manual('testuser')
-                }
-                wrappers {
-                    timestamps()
-                }
-                actions {
-                    shell('echo hello;')
-                }
-            }
-        }
-    }
-    
+    properties(
+        [ buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '4', numToKeepStr: '100'))]
+    )
     parameters {
         string(name: 'buildType', defaultValue: 'maven', description: 'What type of build can be used, gradle or maven')
     }
